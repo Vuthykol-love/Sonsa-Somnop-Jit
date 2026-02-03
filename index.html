@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GirlFriend</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>I love you Oun Nith</h1>
+        <h2>Will You Be My Valentine This year??</h2>
+        <div class="button-group">
+            <button id="yesBtn" onclick="alertfunc()">YES BABY</button>
+            <button id="noBtn" onclick="removeBtn()">NOOO</button>
+        </div>
+    </div>
+
+    <script>
+        let yesYay = document.getElementById('yesBtn');
+        let noNay = document.getElementById('noBtn');
+
+        // On page load, check if NO button was removed in this session
+        if (sessionStorage.getItem("noRemoved") === "true") {
+            if (noNay) noNay.remove();
+        }
+
+        function alertfunc() {
+            alert("YESSSSSS MY VALENTINEEEE <3");
+        }
+
+        function removeBtn() {
+            if (noNay) {
+                noNay.remove(); // removes the button completely
+                sessionStorage.setItem("noRemoved", "true"); // remember removal
+                alert("Haha, no option for you 😘");
+            }
+        }
+    </script>
+</body>
+</html>
